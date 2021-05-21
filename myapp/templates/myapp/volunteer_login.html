@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}Volunteer Login{% endblock %}
+{% block body %}
+<center>
+     <h2><font color="#366092">Volunteer Login</font></h2>
+        <img src="{% static 'myapp/images/user_images.png'%}" width="100" height="100">
+    <div class="container">
+            <form role="form" name="frm" action="{% url 'volunteer_login' %}"  method="post">
+            {% csrf_token %}
+                <div class="form-group">
+                <label for="uname">User Name</label>
+                <input class="form-control" type="text" id="uname" name="uname">
+                </div>
+                <div class="form-group">
+                 <label for="uname">Password</label>
+                 <input class="form-control" type="password" id="passwd" name="passwd">
+                </div>
+                <button type="submit" class="btn btn-info" id="bt" name="bt">Login</button>
+                <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+                <br>
+            <h4><a href="{% url 'volunteer_details_add' %}">New User</a></h4>
+
+            </form>
+        {{msg}}
+        </div>
+</center>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block title %}New User Registration{% endblock %}
+{% block body %}
+<center>
+    <h2>New User Registration</h2>
+	<div class="container">
+    	<form role="form" name="frm" action="{% url 'user_details_add' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+			<div class="row"><label for="fname">Name</label></div>
+	        <div class="row"><input class="form-control" type="text"  id="fname"
+									name="fname" placeholder="First name" required="required"></div>
+			<br>
+			<div class="row"><input class="form-control" type="text"  id="lname"
+				   name="lname" placeholder="Last name" required="required"></div>
+		</div>
+	    <div class="form-group">
+            <div class="row"><label>Gender : </label>&nbsp;
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender1" name="gender" value="Male">
+  				<label class="custom-control-label" for="gender1">Male</label>
+			</div>
+			<div class="custom-control custom-radio custom-control-inline">
+  				<input type="radio" class="custom-control-input" id="gender2" name="gender" value="Female">
+  				<label class="custom-control-label" for="gender2">Female</label>
+			</div>
+			</div>
+		</div>
+
+        <div class="form-group">
+			<div class="row"><label for="age">Age</label></div>
+	        <div class="row">
+				<input type="text"  class="form-control" id="age" placeholder="age" name="age" required>
+			</div>
+		</div>
+
+	    <div class="form-group">
+			<div class="row"><label for="addr">Address</label></div>
+	        <div class="row"><input class="form-control" type="text"  id="addr"
+									name="addr" placeholder="Permanent Address" required></div>
+			<br>
+		</div>
+		<div class="form-group">
+			<div class="row"><label for="pin">Pincode</label></div>
+			<div class="row"><input type="text"  class="form-control" id="pin" name="pin" required placeholder="pin"></div>
+		</div>
+
+	    <div class="form-group">
+			<div class="row"><label for="contact">Contact</label></div>
+	        <div class="row">
+				<input type="text"  class="form-control" id="contact" name="contact" placeholder="Enter contact" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row"><label for="email">Email</label></div>
+	        <div class="row">
+				<input type="email" class="form-control" id="email" name="email" required placeholder="Enter email id">
+			</div>
+		</div>
+        <div class="form-group">
+			<div class="row"><label for="passwd">password</label></div>
+	        <div class="row"><input type="password" class="form-control" id="passwd" name="passwd" required></div>
+		</div>
+	    <button type="submit" class="btn btn-info" id="bt" name="bt">Register</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+
+    </form>
+
+		{{msg}}
+	</div>
+</center>
+{% endblock %}
